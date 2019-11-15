@@ -170,5 +170,53 @@ const colors = {
               zoom: .75; 
             } 
            }
-        </style>`
+        </style>
+        <body>
+        <div class="wrapper">
+        <header class="photo-header">
+            <img src="${profile.avatar_url}">
+            <h1>My Name is ${profile.name}</h1>
+            <h2>Currently @ ${profile.company}</h2>
+            
+                <ul class="links-nav">
+                    <li class="nav-link" id="location"><a></a></li>
+                    <li class="nav-link" id="github"><a>Github</a></li>
+                    <li class="nav-link" id="blog"><a>Blog</a></li>
+                </ul>
+            
+        </header>
+        <div class="container">
+            <h1></h1>
+            <div class="row">
+                <div class="card" id="card1">
+                    <h2>Public Repositories:</h2>
+                    <h3>${profile.public_repos}</h3>
+                </div>
+                <div class="card" id="card2">
+                        <h2>Followers:</h2>
+                        <h3>${profile.followers}</h3>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="card" id="card3">
+                        <h2>Github Stars:</h2>
+                        <h3>5</h3>
+                </div>
+                <div class="card" id="card4">
+                        <h2>Following:</h2>
+                        <h3>${profile.following}</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+        
+        </body>
+        
+        
+        
+        `
+
+        
           }

@@ -34,7 +34,7 @@ const colors = {
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
         <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
-        <title>Document</title>
+        <title>Profile</title>
         <style>
             @page {
               margin: 0;
@@ -171,17 +171,18 @@ const colors = {
             } 
            }
         </style>
+        </head>
         <body>
         <div class="wrapper">
         <header class="photo-header">
-            <img src="${profile.avatar_url}">
-            <h1>My Name is ${profile.name}</h1>
-            <h2>Currently @ ${profile.company}</h2>
+            <img src="${data.avatar}">
+            <h1>My Name is ${data.name}</h1>
+            <h2>Currently @ ${data.company}</h2>
             
                 <ul class="links-nav">
-                    <li class="nav-link" id="location"><a></a></li>
-                    <li class="nav-link" id="github"><a>Github</a></li>
-                    <li class="nav-link" id="blog"><a>Blog</a></li>
+                    <li class="nav-link" id="location"><a href="https://www.google.com/maps/place/Seattle,+WA/@47.6129432,-122.4821478,11z/data=!3m1!4b1!4m5!3m4!1s0x5490102c93e83355:0x102565466944d59a!8m2!3d47.6062095!4d-122.3320708"></a>${data.location}</li>
+                    <li class="nav-link" id="github"><a href="${data.html_url}">Github</a></li>
+                    <li class="nav-link" id="blog"><a href="https://www.wikipedia.org/">Blog</a></li>
                 </ul>
             
         </header>
@@ -190,11 +191,11 @@ const colors = {
             <div class="row">
                 <div class="card" id="card1">
                     <h2>Public Repositories:</h2>
-                    <h3>${profile.public_repos}</h3>
+                    <h3>${data.public}</h3>
                 </div>
                 <div class="card" id="card2">
                         <h2>Followers:</h2>
-                        <h3>${profile.followers}</h3>
+                        <h3>${data.followers}</h3>
                 </div>
 
             </div>
@@ -205,7 +206,7 @@ const colors = {
                 </div>
                 <div class="card" id="card4">
                         <h2>Following:</h2>
-                        <h3>${profile.following}</h3>
+                        <h3>${data.following}</h3>
                 </div>
 
             </div>
@@ -213,10 +214,9 @@ const colors = {
     </div>
         
         </body>
-        
-        
-        
-        `
-
+        </html>`
         
           }
+
+          module.exports = generateHTML
+        

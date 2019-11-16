@@ -1,29 +1,35 @@
-module.exports = 
-class Github {
-    constructor() {
-        this.client_id = '6a7d6b368fe91a33a157';
-        this.client_secret = '46ee194c1578cc74b0eb4c900a9e560bb43fa489';
-        this.count = 5;
-        this.repos_sort = 'created: asc';
-    }
+module.exports =
+    
+        function getUser(user) {
+            // Get profile data of the user
+            try {
 
-    // Get user
-    async getUser(user) {
-        // Get profile data of the user
-        try {
-            const profileResponse = await fetch(`https://api.github.com/users/${user}?client_id=${this.client_id}&client_secret=${this.client_secret}`);
-            const profile = await profileResponse.json();
+                const queryURL = `https://api.github.com/users/${user}`;
+                axios.get(queryURL).then(function (res) {
+                    var details = {
+                        name: res.data.name,
+                        company: res.data.company,
+                        bio: res.data.bio,
+                        blog: res.data.blog,
+                        html_url: res.data.html_url,
+                        avatar: res.data.avatar_url,
+                        public: res.data.public_repos,
+                        followers: res.data.followers,
+                        following: res.data.following,
+                    }
+                    console.log(details);
 
-            console.log(profile);
+                })
 
-            // return object
-            return {
-                profile
+
             }
-        }
-        catch (err) {
+
+            
+            
+        
+        catch(err) {
             console.log(err);
         }
     }
-};
+
 
